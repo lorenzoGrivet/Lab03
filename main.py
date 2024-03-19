@@ -11,7 +11,14 @@ while(True):
     if int(txtIn) == 1:
         print("Inserisci la tua frase in Italiano\n")
         txtIn = input()
-        sc.handleSentence(txtIn,"italian")
+
+        risultato = sc.handleSentence(txtIn,"italian")
+
+        for i in risultato[0]:
+            print(i)
+
+        print(f"Numero parole errate: {len(risultato)}")
+        print(f"Tempo impiegato per il calcolo: {risultato[1]}")
         continue
 
     if int(txtIn) == 2:

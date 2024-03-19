@@ -17,7 +17,8 @@ while(True):
         for i in risultato[0]:
             print(i)
 
-        print(f"Numero parole errate: {len(risultato)}")
+        print(f"Numero parole errate: {len(risultato[0])}")
+
         print(f"Tempo impiegato per il calcolo: {risultato[1]}")
         continue
 

@@ -14,24 +14,56 @@ while(True):
 
         risultato = sc.handleSentence(txtIn,"italian")
 
-        for i in risultato[0]:
-            print(i)
+        comandi=["Contains:","Linear:","Dicotomic:"]
+        a=0
+        for i in risultato:
+            print(f"Lista parole errate usando {comandi[a]}")
+            a+=1
 
-        print(f"Numero parole errate: {len(risultato[0])}")
+            for w in i[0]:
+                print(w)
 
-        print(f"Tempo impiegato per il calcolo: {risultato[1]}")
+            print(f"Numero parole errate: {len(i[0])}")
+            print(f"Tempo impiegato per il calcolo: {i[1]}")
+            print ("--------------------------------------------------------")
+
         continue
 
     if int(txtIn) == 2:
         print("Inserisci la tua frase in Inglese\n")
         txtIn = input()
-        sc.handleSentence(txtIn,"english")
+        risultato=sc.handleSentence(txtIn,"english")
+
+        comandi = ["Contains:", "Linear:", "Dicotomic:"]
+        a = 0
+        for i in risultato:
+            print(f"Lista parole errate usando {comandi[a]}")
+            a += 1
+
+            for w in i[0]:
+                print(w)
+
+            print(f"Numero parole errate: {len(i[0])}")
+            print(f"Tempo impiegato per il calcolo: {i[1]}")
+            print("--------------------------------------------------------")
         continue
 
     if int(txtIn) == 3:
         print("Inserisci la tua frase in Spagnolo\n")
         txtIn = input()
-        sc.handleSentence(txtIn,"spanish")
+        risultato=sc.handleSentence(txtIn,"spanish")
+        comandi = ["Contains:", "Linear:", "Dicotomic:"]
+        a = 0
+        for i in risultato:
+            print(f"Lista parole errate usando {comandi[a]}")
+            a += 1
+
+            for w in i[0]:
+                print(w)
+
+            print(f"Numero parole errate: {len(i[0])}")
+            print(f"Tempo impiegato per il calcolo: {i[1]}")
+            print("--------------------------------------------------------")
         continue
 
     if int(txtIn) == 4:

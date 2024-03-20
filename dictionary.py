@@ -1,9 +1,10 @@
 class Dictionary:
     def __init__(self):
+        self._dict=[]
         pass
 
     def loadDictionary(self,path):
-        diz = []
+        diz = self.dict
         nome=""
 
         if path=="italian":
@@ -13,7 +14,7 @@ class Dictionary:
         elif path == "spanish":
             nome = "resources/Spanish.txt"
 
-        file = open(nome, "r")
+        file = open(nome, "r",encoding="utf-8")
 
         for a in file:
             a=a.strip("\n")
@@ -21,14 +22,14 @@ class Dictionary:
             a=a.strip()
             a=a.rstrip()
             a=a.replace('\n','')
-            diz.append(a)
+            diz.append(a.lower())
 
         file.close()
         return diz
         pass
 
     def printAll(self):
-        for a in self:
+        for a in self.dict:
             print(a)
         pass
 

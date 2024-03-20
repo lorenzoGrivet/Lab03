@@ -9,13 +9,30 @@ class SpellChecker:
         pass
 
     def handleSentence(self, txtIn, language):
+
+        #ricerca contains
         start_time = time.time()
+
         testo = replaceChars(txtIn)
-        lista_testo = testo.split(" ")
-        risultato = self.multi.searchWord(lista_testo, language)
+        lista_testo = testo.lower().split(" ")
+
+        risultato_contains = self.multi.searchWord(lista_testo, language)
         end_time = time.time()
-        tempo=end_time-start_time
-        return risultato,tempo
+        tempo_contains=end_time-start_time
+
+        start_time = time.time()
+        risultato_linear=self.multi.searchWordLinear(lista_testo,language)
+        end_time=time.time()
+        tempo_linear=end_time-start_time
+
+        start_time = time.time()
+        risultato_dicotomic = self.multi.searchWordDicotomic(lista_testo, language)
+        end_time = time.time()
+        tempo_dicotomic = end_time - start_time
+
+        finale=[(risultato_contains,tempo_contains),(risultato_linear,tempo_linear),(risultato_dicotomic,tempo_dicotomic)]
+
+        return finale
         pass
 
     def printMenu(self):
